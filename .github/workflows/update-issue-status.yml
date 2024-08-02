@@ -1,12 +1,6 @@
 name: Update Issue Status
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - converted_to_draft
-      - ready_for_review
+  workflow_dispatch:
 jobs:
   update_issue_status:
     uses: flowfuse/.github/.github/workflows/record-in-review.yml@main

@@ -9,13 +9,7 @@ on:
       localfs_ref:
         description: 'localfs package ref'
         required: false
-  workflow_run:
-    workflows: 
-      - 'Tests'
-    branches: 
-      - main
-    types: 
-      - completed
+
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
