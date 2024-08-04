@@ -20,8 +20,8 @@ build:
         npm run build
       upstream: echo "flowfuse is Upstream"
       downstream: echo "flowfuse is Downstream"
-      # after:
-      #   current: String | List of Strings
+      after:
+        current: cat package.json
       #   upstream: String | List of Strings
       #   downstream: String | List of Strings
     # clone: List of Strings
