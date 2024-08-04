@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build Chain
         id: build-chain
-        uses: ginxo/github-action-build-chain@v3.5.6
+        uses: kiegroup/github-action-build-chain@v3.5.6
         with:
           definition-file: ./ci/dependency-tree.yml
         env:
