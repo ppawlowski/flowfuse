@@ -6,6 +6,7 @@ dependencies:
   - project: ppawlowski/driver-localfs
     dependencies:
       - project: ppawlowski/nr-launcher
+  - project: ppawlowski/nr-launcher
 build:
   - project: ppawlowski/flowfuse
     build-command:
