@@ -6,6 +6,7 @@ dependencies:
   - project: ppawlowski/driver-localfs
     dependencies:
       - project: ppawlowski/nr-launcher
+  - project: ppawlowski/nr-launcher
 build:
   - project: ppawlowski/flowfuse
     build-command:
@@ -19,8 +20,30 @@ build:
         npm run build
       upstream: echo "flowfuse is Upstream"
       downstream: echo "flowfuse is Downstream"
-      # after:
+      after:
+        current: |
+          pwd
+          cat package.json
+      #   upstream: String | List of Strings
+      #   downstream: String | List of Strings
+    # clone: List of Strings
+    # skip: true
+  - project: ppawlowski/driver-localfs
+    build-command:
+      # before:
       #   current: String | List of Strings
+      #   upstream: String | List of Strings
+      #   downstream: String | List of Strings
+      current: |
+        npm install flowfuse/nr-launcher --save
+        npm ci
+        npm run build
+      upstream: echo "driver-localfs is Upstream"
+      downstream: echo "driver-localfs is Downstream"
+      after:
+        current: |
+          pwd
+          cat package.json
       #   upstream: String | List of Strings
       #   downstream: String | List of Strings
     # clone: List of Strings
