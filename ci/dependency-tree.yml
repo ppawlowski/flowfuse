@@ -41,6 +41,7 @@ build:
     # skip: true
   - project: ppawlowski/nr-launcher
     build-command:
+      upstream: echo "nr-launcher is Upstream"
       current: npm ci 
       downstream: npm ci 
       # upstream:
