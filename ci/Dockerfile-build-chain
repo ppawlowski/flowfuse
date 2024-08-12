@@ -1,0 +1,13 @@
+FROM node:18-alpine
+
+WORKDIR /usr/src/forge
+COPY package.json .
+COPY ./forge /usr/src/forge/forge
+COPY ./node_modules /usr/src/forge/node_modules
+COPY ./frontend /usr/src/forge/frontend
+
+ENV FLOWFORGE_HOME=/usr/src/forge
+
+EXPOSE 3000
+
+CMD [ "node", "forge/app.js"]
