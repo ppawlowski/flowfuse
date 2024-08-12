@@ -22,14 +22,11 @@ build:
         npm run build
       upstream: | 
         echo "flowfuse is Upstream"
-        # npm ci
-        # npm link @flowfuse/driver-localfs
-        # npm run build
       downstream: |
         echo "flowfuse is downstream"
-        yalc add @flowfuse/driver-localfs
         npm install --no-audit --no-fund pg-hstore@^2.3.4
         npm install --no-audit --no-fund @flowfuse/driver-kubernetes
+        npm install --no-audit --no-fund ../ppawlowski_driver-localfs
         npm install --no-audit --no-fund
         npm run build
         docker build -f ./ci/Dockerfile-build-chain -t k8s-forge:build-chain-local .
@@ -44,27 +41,16 @@ build:
     # skip: true
   - project: ppawlowski/nr-launcher
     build-command:
-      before:
-        current: npm install yalc -g
-      current: |
-        npm ci 
-        yalc publish --no-scripts
-      downstream: |
-        npm ci 
-        yalc publish --no-scripts
+      current: npm ci 
+      downstream: npm ci 
       # upstream:
       #   npm ci
       #   npm run test
       #   npm link
   - project: ppawlowski/driver-localfs
     build-command:
-      before:
-        current: npm install yalc -g
-      current: |
-        npm ci
-        yalc publish --no-scripts
-      upstream: |
-        echo "driver-localfs is Upstream"
+      current: npm ci
+      upstream: echo "driver-localfs is Upstream"
       downstream: echo "driver-localfs is Downstream"
       after:
         current: |
