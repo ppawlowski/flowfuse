@@ -45,8 +45,8 @@ build:
     # skip: true
   - project: ppawlowski/nr-launcher
     build-command:
-      before: |
-        npm install yalc -g
+      before:
+        current: npm install yalc -g
       current: |
         npm ci 
         npm run test
@@ -61,8 +61,8 @@ build:
       #   npm link
   - project: ppawlowski/driver-localfs
     build-command:
-      before: |
-        npm install yalc -g
+      before:
+        current: npm install yalc -g
       current: |
         npm ci
         yalc publish --no-scripts
