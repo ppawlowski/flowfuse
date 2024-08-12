@@ -31,7 +31,6 @@ build:
         npm install --no-audit --no-fund pg-hstore@^2.3.4
         npm install --no-audit --no-fund @flowfuse/driver-kubernetes
         npm install --no-audit --no-fund
-        npm link @flowfuse/driver-localfs
         npm run build
         docker build -f ./ci/Dockerfile-build-chain -t k8s-forge:build-chain-local .
       # after:
@@ -49,11 +48,9 @@ build:
         current: npm install yalc -g
       current: |
         npm ci 
-        npm run test
         yalc publish --no-scripts
       downstream: |
         npm ci 
-        npm run test
         yalc publish --no-scripts
       # upstream:
       #   npm ci
@@ -66,7 +63,8 @@ build:
       current: |
         npm ci
         yalc publish --no-scripts
-      upstream: echo "driver-localfs is Upstream"
+      upstream: |
+        echo "driver-localfs is Upstream"
       downstream: echo "driver-localfs is Downstream"
       after:
         current: |
