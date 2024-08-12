@@ -26,8 +26,8 @@ build:
         echo "flowfuse is downstream"
         npm install --no-audit --no-fund pg-hstore@^2.3.4
         npm install --no-audit --no-fund @flowfuse/driver-kubernetes
-        npm install --no-audit --no-fund ../ppawlowski_driver-localfs
         npm install --no-audit --no-fund
+        cp -r ../ppawlowski_driver-localfs node_modules/
         npm run build
         docker build -f ./ci/Dockerfile-build-chain -t k8s-forge:build-chain-local .
       # after:
