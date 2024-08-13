@@ -27,7 +27,7 @@ build:
         npm install --no-audit --no-fund pg-hstore@^2.3.4
         npm install --no-audit --no-fund @flowfuse/driver-kubernetes
         npm install --no-audit --no-fund
-        cp -r ../ppawlowski_driver-localfs node_modules/@flowfuse/driver-localfs
+        cp -r ../ppawlowski_driver-localfs/* node_modules/@flowfuse/driver-localfs/
         npm run build
         docker build -f ./ci/Dockerfile-build-chain -t k8s-forge:build-chain-local .
       # after:
