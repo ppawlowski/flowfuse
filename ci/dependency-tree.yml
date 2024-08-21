@@ -7,8 +7,8 @@ dependencies:
     dependencies:
       - project: ppawlowski/nr-launcher
   - project: ppawlowski/nr-launcher
-pre: |
-  export PATH=$(pwd)
+# pre: |
+#   export PATH=$(pwd)
 build:
   - project: ppawlowski/flowfuse
     build-command:
@@ -56,8 +56,7 @@ build:
     build-command:
       current: |
         npm ci
-        npm pack --no-scripts
-        mv flowfuse-driver-localfs-*.tgz flowfuse-driver-localfs.tgz
+        npm run ci:pack-and-rename
       upstream: echo "driver-localfs is Upstream"
       downstream: echo "driver-localfs is Downstream"
       after:
